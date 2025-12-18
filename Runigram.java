@@ -196,7 +196,7 @@ public class Runigram {
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
 		source = scaled(source, target[0].length, target.length);
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i <= n; i++) {
 			display(blend(source, target, (double) (n-i)/n));
 			StdDraw.pause(500);
 		}
