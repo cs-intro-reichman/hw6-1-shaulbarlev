@@ -16,7 +16,9 @@ public class Runigram {
 		Color[][] image;
 
 		// Tests the horizontal flipping of an image:
-		image = flippedHorizontally(tinypic);
+		// image = flippedHorizontally(tinypic);
+		// image = flippedVertically(tinypic);
+		image = grayScaled(tinypic);
 		System.out.println();
 		print(image);
 		
@@ -82,24 +84,42 @@ public class Runigram {
 	 * Returns an image which is the horizontally flipped version of the given image. 
 	 */
 	public static Color[][] flippedHorizontally(Color[][] image) {
-		//// Replace the following statement with your code
-		return null;
+		int numRows = image.length;
+		int numCols = image[0].length;
+		Color[][] flipped = new Color[numRows][numCols];
+		
+		for (int j = 0; j < numRows; j++ ) {
+			for (int i = 0; i < numCols; i++ ) {
+				flipped[j][i] = image[j][numCols-i-1];
+			}
+		} 
+
+		return flipped;
 	}
 	
 	/**
 	 * Returns an image which is the vertically flipped version of the given image. 
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
-		//// Replace the following statement with your code
-		return null;
+		int numRows = image.length;
+		int numCols = image[0].length;
+		Color[][] flipped = new Color[numRows][numCols];
+		
+		for (int j = 0; j < numRows; j++ ) {
+			for (int i = 0; i < numCols; i++ ) {
+				flipped[j][i] = image[numRows-j-1][i];
+			}
+		} 
+		
+		return flipped;
 	}
 	
 	// Computes the luminance of the RGB values of the given pixel, using the formula 
 	// lum = 0.299 * r + 0.587 * g + 0.114 * b, and returns a Color object consisting
 	// the three values r = lum, g = lum, b = lum.
 	private static Color luminance(Color pixel) {
-		//// Replace the following statement with your code
-		return null;
+		int lum = (int) (0.299*pixel.getRed() + 0.587*pixel.getGreen() + 0.114*pixel.getBlue());
+		return new Color(lum,lum,lum);
 	}
 	
 	/**
@@ -107,7 +127,13 @@ public class Runigram {
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
 		//// Replace the following statement with your code
-		return null;
+		Color[][] grayScaled = new Color[image.length][image[0].length];
+		for (int j = 0; j < image[0].length; j++ ) {
+			for (int i = 0; i < image.length; i++ ) {
+				grayScaled[j][i] = luminance(image[j][i]);
+			}
+		}
+		return grayScaled;
 	}	
 	
 	/**
