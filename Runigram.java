@@ -42,9 +42,9 @@ public class Runigram {
 		// creates from the 3 colors a new Color object, and 
 		// makes pixel (i,j) refer to that object.
 		//// Replace the following statement with your code.
-		for (int j = 0; j < numCols; j++) {
-			for (int i = 0; i < numRows; i++ ) {
-				image[i][j] = new Color(in.readInt(), in.readInt(), in.readInt());
+		for (int row = 0; row < numRows; row++) {
+			for (int col = 0; col < numCols; col++ ) {
+				image[row][col] = new Color(in.readInt(), in.readInt(), in.readInt());
 			}
 		}
 
@@ -70,10 +70,9 @@ public class Runigram {
 		//// Notice that all you have to so is print every element (i,j) of the array using the print(Color) function.
 		int numRows = image.length;
 		int numCols = image[0].length;
-		for (int j = 0; j < numRows; j++) {
-			for (int i = 0; i < numCols; i++ ) {
-				// System.out.print("(" + image[j][i].getRed() + "," + image[j][i].getGreen() + image[j][i].getBlue() + ")");
-				print(image[j][i]);
+		for (int row = 0; row < numRows; row++) {
+			for (int col = 0; col < numCols; col++ ) {
+				print(image[row][col]);
 			}
 			System.out.print("\n");
 		}
@@ -128,8 +127,8 @@ public class Runigram {
 	public static Color[][] grayScaled(Color[][] image) {
 		//// Replace the following statement with your code
 		Color[][] grayScaled = new Color[image.length][image[0].length];
-		for (int j = 0; j < image[0].length; j++ ) {
-			for (int i = 0; i < image.length; i++ ) {
+		for (int j = 0; j < image.length; j++ ) {
+			for (int i = 0; i < image[0].length; i++ ) {
 				grayScaled[j][i] = luminance(image[j][i]);
 			}
 		}
